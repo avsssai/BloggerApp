@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+
+    <div class="ui container segment">
+        <div class="ui dividing center aligned huge header">
+            <%= blog.title %>
+        </div>
+
+        <img src="<%= blog.image %>" alt="img" class="ui medium image centered rounded">
+        <% if(currentUser && currentUser._id.equals(blog.owner.id)) { %>
+        <form action="/home/<%= blog._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="ui basic right floated red button">Delete</button>
+        </form>
+
+        <a class="ui basic right floated yellow button" href="/home/<%= blog._id %>/edit">Edit</a>
+        <% } %>
+        <p><i><%= blog.author %></i></p>
+
+        <p><%= blog.body %></p>
+    </div>
+
+    <div class="ui container segment">
+            <h1 class="ui dividing header">Comments</h1>
+            <% if(currentUser) { %>
+               <% include ../comments/new-comment %>
+                   
+                   <% } %>
+               
+               <% blog.comments.forEach(comment => { %>
+                   <div class="ui black segment">
+                       <div class="ui dividing header">
+                           <%= comment.owner.username %>
+                        <div class="ui right floated content">
+                           <% if(currentUser && comment.owner.id.equals(currentUser._id)){ %>
+                                <form action="/home/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <button class="ui basic red button">Delete</button>
+                                </form>
+    
+                           <% } %>
+                        </div>
+                        </div>
+                       <p><%= comment.text %></p>
+                   </div>
+           
+              <% }) %>
+              
+           
+           </div>
+           
+<% include ../partials/footer %>

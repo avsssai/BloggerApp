@@ -1,0 +1,9 @@
+#img{
+    object-fit: contain;
+    
+}
+
+#blog-card {
+    display: flex;
+    flex-wrap: wrap;
+}

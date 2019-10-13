@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="ui container segment">
+    <div class="ui dividing large header">
+        Login Page
+    </div>
+
+    <form action="/login" method="POST" class="ui form">
+        <div class="field">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username..">
+        </div>
+        <div class="field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password..">
+        </div>
+
+        <button class="ui black basic button" type="submit">Login</button>
+    </form>
+
+</div>
+
+<% include ../partials/footer %>

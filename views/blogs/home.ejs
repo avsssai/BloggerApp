@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class="ui container stackable grid ">
+        
+    <div class="ui three column centered row">
+        <% blogs.forEach(blog => { %>
+        <div class="five wide computer wight wide tablet column">
+            <div class="ui card fluid" id="blog-card">
+                <a class="ui medium centered image " href=" /home/<%= blog._id %>" id="img">
+                    <img src="<%= blog.image %>" alt="image" id="img-card" class="ui centered image">
+                </a>
+                <div class="content">
+                    <a href="/home/<%= blog._id %>"><%= blog.title %></a>
+                    <div class="meta">
+                        <span class="date">
+                            <emp>By</emp> <b><%= blog.author %></b>
+                        </span>
+                    </div>
+                    <div class="description">
+                        <%= blog.body.substring(0,30) %>...
+                    </div>
+                    
+                </div>
+                <div class="extra content">
+                    Published in <b><%= blog.date %></b>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+
+</div>
+
+<% include ../partials/footer %>
