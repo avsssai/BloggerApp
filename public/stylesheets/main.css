@@ -1,5 +1,7 @@
-#img{
-    object-fit: contain;
+#img-card{
+    max-height: 200px;
+    max-width: 100%;
+    object-fit: fill;
     
 }
 
@@ -7,3 +9,22 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+#main{
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+
+#row{
+    display: flex;
+}
+
+#column{
+    display: flex;
+}
+
+#description{
+    text-decoration:none; 
+}
+

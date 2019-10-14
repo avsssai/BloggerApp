@@ -1,12 +1,12 @@
 <% include ../partials/header %>
 
 
-    <div class="ui container segment">
+    <div class="ui container raised segment">
         <div class="ui dividing center aligned huge header">
             <%= blog.title %>
         </div>
 
-        <img src="<%= blog.image %>" alt="img" class="ui medium image centered rounded">
+        <img src="<%= blog.image %>" alt="img" class="ui huge image centered rounded">
         <% if(currentUser && currentUser._id.equals(blog.owner.id)) { %>
         <form action="/home/<%= blog._id %>?_method=DELETE" method="POST">
             <button type="submit" class="ui basic right floated red button">Delete</button>
@@ -16,7 +16,7 @@
         <% } %>
         <p><i><%= blog.author %></i></p>
 
-        <p><%= blog.body %></p>
+        <p><%- blog.body %></p>
     </div>
 
     <div class="ui container segment">

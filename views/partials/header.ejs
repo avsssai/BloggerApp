@@ -9,12 +9,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
     />
-    <link rel="stylesheet" href="stylesheets/main.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+          selector: '#mytextarea'
+        });
+        </script>
+      
     
   </head>
-  <body>
-    <div class="ui huge menu">
+  <body style="background:#4E91C6;
+  ">
+    <div class="ui grey inverted huge menu" id="menu" >
       <div class="ui container">
         <div class="header item">
           Shiva's Blog
@@ -39,4 +46,5 @@
         </div>
       </div>
     </div>
+<div class="main">
 

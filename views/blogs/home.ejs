@@ -1,12 +1,11 @@
 <% include ../partials/header %>
 
-<div class="ui container stackable grid ">
+<div class="ui container stackable grid " id="main">
         
-    <div class="ui three column centered row">
         <% blogs.forEach(blog => { %>
-        <div class="five wide computer wight wide tablet column">
-            <div class="ui card fluid" id="blog-card">
-                <a class="ui medium centered image " href=" /home/<%= blog._id %>" id="img">
+        <div class="five wide computer eight wide tablet sixteen wide mobile centered column" id="column">
+            <div class="ui card fluid raised" id="blog-card">
+                <a class=" image " href=" /home/<%= blog._id %>" id="img">
                     <img src="<%= blog.image %>" alt="image" id="img-card" class="ui centered image">
                 </a>
                 <div class="content">
@@ -16,18 +15,17 @@
                             <emp>By</emp> <b><%= blog.author %></b>
                         </span>
                     </div>
-                    <div class="description">
+                    <div class="description" id="description">
                         <%= blog.body.substring(0,30) %>...
                     </div>
                     
                 </div>
                 <div class="extra content">
-                    Published in <b><%= blog.date %></b>
+                    Published - <b><%= blog.date.toString().substring(0,16) %></b>
                 </div>
             </div>
         </div>
         <% }) %>
-    </div>
 
 
 </div>
