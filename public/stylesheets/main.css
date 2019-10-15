@@ -8,7 +8,6 @@
 #blog-card {
     display: flex;
     flex-wrap: wrap;
-    max-width: 90%;
 }
 
 #main{
