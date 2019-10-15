@@ -8,7 +8,9 @@ var express = require("express"),
     session= require('express-session'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
-    User = require('./models/user');
+    User = require('./models/user'),
+    validator = require('express-validator'),
+    flash = require('connect-flash');
 
 
 mongoose.connect("mongodb://localhost:27017/blog",{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
@@ -30,16 +32,22 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
 app.use(express.static("public"));
+app.use(flash());
 
-app.use((req,res,next)=>{
-    res.locals.currentUser = req.user;
-    next();
-})
+
 
 
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use((req,res,next)=>{
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    
+    next();
+});
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());

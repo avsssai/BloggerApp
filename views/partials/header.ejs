@@ -48,3 +48,15 @@
     </div>
 <div class="main">
 
+ <% if(error && error.length > 0){ %>
+    <div class="ui red segment">
+        <%= error %>
+    </div>  
+  
+  <% } %>
+  
+  <% if(error && error.length > 0){ %>
+    <div class="ui red segment"><%= success %></div>
+    
+  <% } %>
+  

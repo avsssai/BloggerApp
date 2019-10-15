@@ -4,15 +4,34 @@
     <div class="ui dividing header">
         Register
     </div>
+    <div id="errors">
+        <ul>
+            <% if(typeof errors !== 'undefined' && errors){ %>
 
+            <div class="ui segments">
+                <% errors.forEach(error=>{ %>
+                <div class="ui red segment" id="error-segment">
+                    <b><%= error.msg %></b>
+                </div>
+                <% }) %>
+            </div>
+
+
+
+
+            <% } %>
+
+
+        </ul>
+    </div>
     <form class="ui form" method="POST" action="/register">
         <div class="field">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Username">
         </div>
         <div class="field">
-                <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password">
         </div>
         <button type="submit" class="ui basic black button">Register</button>
         <a href="/home" class="ui black basic button">Back</a>

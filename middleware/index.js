@@ -24,15 +24,20 @@ middleware.checkBlogOwnership = function(req,res,next){
                 if(foundBlog.owner.id.equals(req.user._id)){
                     next();
                 }else{
+                    
                     res.redirect('back');
+                    req.flash("error","You don't have permissions to do that.");
                 }
             })
             .catch(err=>{
                 console.log(err);
+                
                 res.redirect('back')
             })
     }else{
+        
         res.redirect('back');
+        req.flash("error","You must be logged in to do that.");
     }
 }
 
@@ -47,6 +52,7 @@ middleware.checkCommentOwnership = function(req,res,next){
                     next();
 
                 }else{
+                    
                     req.redirect('back');
                 }
             })

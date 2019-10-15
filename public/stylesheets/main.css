@@ -8,6 +8,7 @@
 #blog-card {
     display: flex;
     flex-wrap: wrap;
+    max-width: 90%;
 }
 
 #main{
@@ -18,6 +19,7 @@
 
 #row{
     display: flex;
+    align-items: flex-start;
 }
 
 #column{
@@ -25,6 +27,10 @@
 }
 
 #description{
-    text-decoration:none; 
+    text-decoration:none;
+    
 }
 
+#error-segment{
+    margin-bottom: 2px;
+}

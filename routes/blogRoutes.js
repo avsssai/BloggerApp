@@ -1,6 +1,7 @@
 var express = require("express");
 var Blog = require("../models/blog");
 var middleware = require('../middleware/index');
+var {check ,validationResult} = require('express-validator');
 
 var router = express.Router();
 
