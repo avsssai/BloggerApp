@@ -1,62 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Shiva's Blog</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
-    />
-    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-          selector: '#mytextarea'
-        });
-        </script>
-      
-    
-  </head>
-  <body style="background:#4E91C6;
-  ">
-    <div class="ui grey inverted huge menu" id="menu" >
-      <div class="ui container">
-        <div class="header item">
-          Shiva's Blog
-        </div>
-        <a class="item" href="/home">
-          All Blogs
-        </a>
-        <% if(currentUser) { %>
-          <a class="item" href="/home/new">New Blog</a>
-          <%  } %> 
 
-        <div class="right menu">
-          <% if(currentUser) { %>
-            <a href="/home" class="item"> <b>Hello,</b>&nbsp; <i> <%= currentUser.username %></i></a>
-            <a href="/logout" class="item">Logout</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Shiva's Blog</title>
+  <link rel="stylesheet" href="stylesheets/media.css">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" />
+  <link href="https://fonts.googleapis.com/css?family=Archivo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 
-          <% }if(!currentUser){ %>  
-            <a href="/login" class="item">Login</a>
-            <a href="/register" class="item">Sign Up</a>
-  
-           <%  } %> 
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <!-- Include the Quill library -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+
+</head>
+
+<body >
+  <style>
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+  </style>
+
+ 
+
+
+  <div class="ui grid">
+    <div class="large screen computer only row" id="computer-row">
+      <div class="column">
+        <div class="ui grey inverted grey huge menu">
+          <div class="ui container">
+
+            <a class="header item" href="/home">Shiva's Blog</a>
+            <a class="item" href="/home">All Blogs</a>
+            <% if(currentUser) { %>
+            <a class="item" href="/home/new">New Blog</a>
+            <%  } %>
+
+            <div class="right menu">
+
+              <% if(currentUser){ %>
+              <a class="item" href="/logout">Logout</a>
+              <% }if(!currentUser){ %>
+              <a class="item" href="/login">Login</a>
+              <a class="item" href="/register">Sign Up</a>
+              <% } %>
+            </div>
+
+
+          </div>
         </div>
       </div>
     </div>
-<div class="main">
+    <!-- Tablet and Mobile only row -->
+    <div class="tablet mobile only row" id="mobile-row">
+      <div class="column">
 
- <% if(error && error.length > 0){ %>
-    <div class="ui red segment">
-        <%= error %>
-    </div>  
-  
-  <% } %>
-  
-  <% if(error && error.length > 0){ %>
-    <div class="ui red segment"><%= success %></div>
-    
-  <% } %>
-  
+        <div class="ui inverted grey large menu">
+          <div class="header centered item">
+            Shiva's Blog
+          </div>
+          <div class="right menu">
+            <a class="item" id="mobile-item">
+              <i class="bars icon"></i>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- have a sidebar when we click on the bars icon -->
+
+  <div class="ui pushable segment">
+    <div class="ui right sidebar vertical menu" id="pushed-sidebar">
+
+
+      <% if(currentUser){ %>
+      <a class="item" href="/new">New Blog</a>
+      <a class="item" href="/logout">Logout</a>
+      <% }if(!currentUser){ %>
+      <a class="item" href="/home">All Blogs</a>
+      <a class="item" href="/login">Login</a>
+      <a class="item" href="/register">Sign Up</a>
+      <% } %>
+
+
+
+    </div>
+    <div class="pusher" id="wrapper">
+      <div class="main">
+
+        <% if(error && error.length > 0){ %>
+        <div class="ui red segment">
+          <%= error %>
+        </div>
+
+        <% } %>
+
+        <% if(error && error.length > 0){ %>
+        <div class="ui red segment"><%= success %></div>
+
+        <% } %>
+      </div>

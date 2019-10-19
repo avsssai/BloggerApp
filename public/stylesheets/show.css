@@ -1,0 +1,84 @@
+#show-image {
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+#action-buttons {
+    padding-right: 40px;
+}
+
+#author #author-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#author {
+    padding-left: 40px;
+    margin-left: 20px;
+
+
+}
+
+#blog-body {
+    padding: 70px;
+    font-size: 16px;
+}
+
+
+
+#published-text {
+    font-style: italic;
+    margin-left: 20px;
+    font-weight: 500;
+    padding-left: 40px;
+}
+
+#main-show-doc {
+    font-family: 'Libre Baskerville', serif;
+    word-spacing: 2px;
+    line-height: 1.7;
+}
+
+p {
+    word-spacing: 2px;
+    line-height: 1.7;
+}
+
+#blog-title {
+    font-family: 'Libre Baskerville', serif;
+
+}
+
+@media (max-width: 767px) {
+
+    #blog-body {
+        padding: 0;
+        margin-left: 0;
+        line-height: inherit;
+        text-align: inherit;
+        word-spacing: normal;
+
+    }
+    #blog-body:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+      }
+
+    #author {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    #published-text {
+
+        margin-left: 0;
+
+        padding-left: 0;
+    }
+    
+}
+
+.fixedPosition{
+    position: fixed;
+}

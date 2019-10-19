@@ -21,8 +21,12 @@
         </div>
     
         <div class="field">
-            <label for="body">Body</label>
-            <textarea name="body" id="body" cols="30" rows="10"><%= blog.body %></textarea>
+            <!-- <label for="body">Body</label>
+            <textarea name="body" id="body" cols="30" rows="10"><%= blog.body %></textarea> -->
+            <input name="body" type="hidden" >
+            <div id="editor-container">
+                <%- blog.body %>
+            </div>
         </div>
     
         <button class="ui basic black button" type="submit">Update</button>

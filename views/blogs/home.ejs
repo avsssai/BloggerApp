@@ -1,10 +1,45 @@
 <% include ../partials/header %>
 
-<div class="ui container stackable grid " id="main">
+<div class="ui stackable grid" id="landing">
+    <div class="row">
+        <div class="column" id="landing-column">
+            <div id="center-text">
+                <div id="init-text">
+                        <i class="angle right icon" id="main-icon"></i> <code>init</code><i class="window minimize outline icon" id="blink-icon"></i>
+                </div>
+                    
+            </div>
+            <div id="welcome-text" class="ui container">
+                <p>Welcome to my Blog,</p>
+                <p>A place where I document my learning,</p>
+                <p>You can too!</p> 
+                <h3 class="ui center aligned inverted dividing header large screen only computer only">
+                        <i class="angle down icon" id="down-arrow"></i>
+                </h3>
+            </div>
+
+        </div>
         
+    </div>
+    <!-- <div class="down-arrow">
+            
+        </div> -->
+        
+</div>
+
+
+
+
+<!-- <div class="ui container stackable grid " id="main">
+        
+    
+                
+       
+    
         <% blogs.forEach(blog => { %>
-        <div class="five wide computer eight wide tablet sixteen wide mobile centered column" id="column">
-            <div class="ui card fluid raised" id="blog-card">
+            
+        <div class="five wide computer eight wide tablet sixteen wide mobile centered  column" id="column">
+            <div class="ui centered card fluid raised" id="blog-card">
                 <a class=" image " href=" /home/<%= blog._id %>" id="img">
                     <img src="<%= blog.image %>" alt="image" id="img-card" class="ui centered image">
                 </a>
@@ -15,10 +50,7 @@
                             <emp>By</emp> <b><%= blog.author %></b>
                         </span>
                     </div>
-                    <div class="description" id="description">
-                        <%= blog.body.substring(0,30) %>...
-                    </div>
-                    
+                   
                 </div>
                 <div class="extra content">
                     Published - <b><%= blog.date.toString().substring(0,16) %></b>
@@ -27,7 +59,38 @@
         </div>
         <% }) %>
 
+    
+</div> -->
 
+<div class="content">
+    <div class="ui container">
+            <div class="ui centered dividing inverted huge header">All Blogs</div>
+    </div>
+    <div class="ui stackable grid container">
+        <div class="three column row">
+            <% blogs.forEach(blog =>{ %>
+            <div class="four wide column">
+                <div class="ui link cards">
+                    <div class="card" id="blog-card">
+                        <div class="image" id="card-image">
+                            <img src="<%= blog.image %>" alt="image">
+                        </div>
+                        <div class="content">
+                            <div class="header"><%= blog.title %></div>
+                            <div class="meta">
+                                    <emp>By</emp> <b><%= blog.author %></b>
+                            </div>
+                            
+                        </div>
+                        <div class="extra content">
+                                Published - <b><%= blog.date.toString().substring(0,16) %></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+    </div>
 </div>
 
 <% include ../partials/footer %>

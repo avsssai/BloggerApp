@@ -1,22 +1,39 @@
 <% include ../partials/header %>
 
 
-    <div class="ui container raised segment">
-        <div class="ui dividing center aligned huge header">
+
+<link rel="stylesheet" href="/stylesheets/show.css">
+<link rel="stylesheet" href="stylesheets/media.css">
+
+    <div class="ui container centered raised segment" id="main-show-doc">
+        <div class="ui dividing center aligned huge header" id="blog-title">
             <%= blog.title %>
         </div>
 
-        <img src="<%= blog.image %>" alt="img" class="ui huge image centered rounded">
+        <img src="<%= blog.image %>" alt="img" class="ui huge image centered rounded" id="show-image">
         <% if(currentUser && currentUser._id.equals(blog.owner.id)) { %>
-        <form action="/home/<%= blog._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="ui basic right floated red button">Delete</button>
-        </form>
-
-        <a class="ui basic right floated yellow button" href="/home/<%= blog._id %>/edit">Edit</a>
+            <div id="action-buttons">
+                <form action="/home/<%= blog._id %>?_method=DELETE" method="POST">
+            
+                    <button type="submit" class="ui basic right floated red button" class="delete-button">Delete</button>
+                </form>
+        
+                <a class="ui basic right floated yellow button" href="/home/<%= blog._id %>/edit" id="edit-button">Edit</a>
+            </div>
+        
         <% } %>
-        <p><i><%= blog.author %></i></p>
+        <div class="author-name">
+            
+            <p id="author" ><span>By </span><i id="author-name"><%= blog.author %></i></p>
+        </div>
+       <div class="published-date">
+           <p id="published-text">
+               Published on - <%= blog.date.toString().substring(0,16) %>
+           </p>
+       </div>
+       <div class="ui dividing header"></div>
 
-        <p><%- blog.body %></p>
+        <div id="blog-body"><%- blog.body %></div>
     </div>
 
     <div class="ui container segment">
