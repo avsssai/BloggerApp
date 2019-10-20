@@ -33,7 +33,6 @@ var express = require("express"),
 
     // mongodb://localhost:27017/blog
 var app = express();
-var PORT = 5000;
 
 app.use(session({
     secret:"shiva",
@@ -77,9 +76,9 @@ app.use('/',blogRoutes);
 app.use('/',authRoutes);
 app.use('/home/:id',commentRoutes);
 
-app.listen(PORT,(err)=>{
+app.listen(process.env.PORT||5000,(err)=>{
     if(err){
         console.log(err);
     }
-    console.log("Listening on port "+PORT);
+    console.log("Listening on port "+5000);
 });
