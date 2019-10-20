@@ -14,13 +14,12 @@ var express = require("express"),
     expressSanitizer = require('express-sanitizer'),
     env = require('dotenv').config();
 
-    // var DbConnection = process.env.DB_HOST || "mongodb://localhost:27017/blog";
+    var DbConnection = process.env.DB_HOST || "mongodb://localhost:27017/blog";
     
-//    var uri =  "mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority";
 
 //mongo connection string.
 //IP whitelisting made to white list all IPs.
-    mongoose.connect("mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority",
+    mongoose.connect(DbConnection,
         {useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
         .then(res=>console.log("Connected to the DB."))
         .catch(err=> console.log(err));
