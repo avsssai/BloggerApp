@@ -63,15 +63,15 @@
 </div> -->
 
 <div class="content">
-    <div class="ui container">
+    <div class="ui container" id="allblogs-header">
             <div class="ui centered dividing inverted huge header">All Blogs</div>
     </div>
     <div class="ui stackable grid container">
-        <div class="three column row">
+        <div class="four column row" id="row">
             <% blogs.forEach(blog =>{ %>
-            <div class="four wide column">
+            <div class=" four wide large four wide computer eight wide tablet sixteen wide mobile column">
                 <div class="ui link cards">
-                    <div class="card" id="blog-card">
+                    <a class="card" id="blog-card" href="/home/<%= blog._id %>">
                         <div class="image" id="card-image">
                             <img src="<%= blog.image %>" alt="image">
                         </div>
@@ -85,7 +85,7 @@
                         <div class="extra content">
                                 Published - <b><%= blog.date.toString().substring(0,16) %></b>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         <% }) %>

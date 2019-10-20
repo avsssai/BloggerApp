@@ -10,7 +10,9 @@ var express = require("express"),
     LocalStrategy = require('passport-local'),
     User = require('./models/user'),
     validator = require('express-validator'),
-    flash = require('connect-flash');
+    flash = require('connect-flash'),
+    expressSanitizer = require('express-sanitizer');
+
 
 
 mongoose.connect("mongodb://localhost:27017/blog",{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
@@ -48,6 +50,9 @@ app.use((req,res,next)=>{
     
     next();
 });
+
+app.use(express.json());
+app.use(expressSanitizer());
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());

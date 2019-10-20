@@ -17,15 +17,22 @@
             <input type="text" name="image" placeholder="Image..">
         </div>
     
+        <!-- not working -->
         <div class="field">
             <label for="body">Body</label>
-            <!-- <textarea name="body" id="bosy" cols="30" rows="10"></textarea> -->
-            <!-- <textarea  name="body" id="mytextarea"></textarea> -->
             <input name="body" type="hidden" >
             <div id="editor-container">
               
             </div>
         </div>
+
+        <!-- working -->
+
+        <!-- <div class="field">
+            <label for="body">Body</label>
+            <input name="body" type="text" >
+
+        </div> -->
     
         <button class="ui basic black button" type="submit">Submit</button>
         <a class="ui basic black button" href="/home">Back</a>
@@ -33,5 +40,37 @@
     
 </div>
 
+<!-- <script>
+    var quill = new Quill('#editor-container', {
+  modules: {
+    toolbar: [
+      ['bold', 'italic'],
+      ['link', 'blockquote', 'code-block', 'image'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ 'header': 1 }, { 'header': 2 }],
+      [{ 'font': [] }],
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }]
+
+    ]
+  },
+  placeholder: 'Compose an epic...',
+  theme: 'snow'
+});
+var form = document.querySelector('form');
+form.onsubmit = function() {
+  // Populate hidden form on submit
+  var body = document.querySelector('input[name=body]');
+//   body.value = JSON.stringify(quill.getContents());
+  body.value = quill.root.innerHTML;
+  
+  console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+  
+  // No back end to actually submit to!
+}; -->
+
+
+</script>
 
 <% include ../partials/footer %>

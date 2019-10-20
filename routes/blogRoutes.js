@@ -2,8 +2,10 @@ var express = require("express");
 var Blog = require("../models/blog");
 var middleware = require('../middleware/index');
 var {check ,validationResult} = require('express-validator');
+var expressSanitizer = require('express-sanitizer');
 
 var router = express.Router();
+
 
 router.get('/',(req,res)=>{
     res.redirect('/home');
@@ -30,11 +32,13 @@ router.post('/home',middleware.isLoggedIn,(req,res)=>{
         id:req.user._id,
         username: req.user.username
     }
+    const sanitizedBody = req.sanitize(req.body.body);
+
     var newBlog = {
         title: req.body.title,
         author: req.body.author,
         image:req.body.image,
-        body: req.body.body,
+        body: sanitizedBody,
         date: req.body.date,
         owner: owner
     };
@@ -84,11 +88,12 @@ router.get('/home/:id/edit',middleware.checkBlogOwnership,(req,res)=>{
 //update
 router.put('/home/:id',middleware.checkBlogOwnership,(req,res)=>{
     var id = req.params.id;
+    const sanitizedBody = req.sanitize(req.body.body);
     var updatedBlog = {
         title: req.body.title,
         author: req.body.author,
         image: req.body.image,
-        body: req.body.body
+        body: sanitizedBody
     };
 
     Blog.findByIdAndUpdate(id,updatedBlog)
