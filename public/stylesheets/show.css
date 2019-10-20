@@ -82,3 +82,8 @@ p {
 .fixedPosition{
     position: fixed;
 }
+
+#pushable-segment{
+    margin-bottom: 0;
+    border: 0;
+}

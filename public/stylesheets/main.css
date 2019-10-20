@@ -7,6 +7,8 @@ body{
     height: 100vh;
 
 }
+.item{
+}
 
 #init-text{
     text-align: center;
@@ -133,6 +135,6 @@ footer{
 }
 
 #pushable-segment{
-    margin: 0;
+    margin-bottom: 0;
     border: 0;
 }
