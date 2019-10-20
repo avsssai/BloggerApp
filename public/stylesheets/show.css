@@ -1,3 +1,8 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    }
+    
 #show-image {
     padding: 10px;
     margin-bottom: 50px;
@@ -75,6 +80,11 @@ p {
         margin-left: 0;
 
         padding-left: 0;
+    }
+    #pushable-segment{
+        margin-bottom: 0;
+        border: 0;
+
     }
     
 }
