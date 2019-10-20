@@ -19,6 +19,7 @@ var express = require("express"),
 //    var uri =  "mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority";
 
 //mongo connection string.
+//IP whitelisting made to white list all IPs.
     mongoose.connect("mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority",
         {useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
         .then(res=>console.log("Connected to the DB."))
