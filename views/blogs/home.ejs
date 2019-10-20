@@ -33,13 +33,13 @@
 
 <div class="content">
     <div class="ui container" id="allblogs-header">
-            <div class="ui centered dividing inverted huge header">All Blogs</div>
+            <div class="ui centered dividing inverted huge mobile hidden header">All Blogs</div>
     </div>
     <div class="ui stackable grid container">
         <div class="four column row" id="row">
             <% blogs.forEach(blog =>{ %>
             <div class=" four wide large four wide computer eight wide tablet sixteen wide mobile column">
-                <div class="ui link cards">
+                <div class="ui link centered cards">
                     <a class="card" id="blog-card" href="/home/<%= blog._id %>">
                         <div class="image" id="card-image">
                             <img src="<%= blog.image %>" alt="image">
