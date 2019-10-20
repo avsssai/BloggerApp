@@ -16,7 +16,9 @@ var express = require("express"),
 
     var DbConnection = process.env.DB_HOST || "mongodb://localhost:27017/blog";
     
-    mongoose.connect(process.env.DB_HOST,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
+
+
+    mongoose.connect(DbConnection,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
         .then(res=>console.log("Connected to the DB."))
         .catch(err=> console.log(err));
     
