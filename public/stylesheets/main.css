@@ -62,13 +62,14 @@ body{
         font-family: 'Archivo', sans-serif;
 
     }
-    #all-blogs-header{
-        margin-top: 20px;
+    #allblogs-header{
+        margin-top: 100px;
+
     }
     #row{
         align-content: center;
     }
-
+    
 }
 
 #wrapper{
@@ -109,8 +110,8 @@ img{
 }
 
 #login{
-    height: 350px;
-    width: 350px;
+    height: 400px;
+    width: 400px;
     align-content: center;
     padding: 50px;
     margin-top:100px;

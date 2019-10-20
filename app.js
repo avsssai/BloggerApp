@@ -11,14 +11,23 @@ var express = require("express"),
     User = require('./models/user'),
     validator = require('express-validator'),
     flash = require('connect-flash'),
-    expressSanitizer = require('express-sanitizer');
+    expressSanitizer = require('express-sanitizer'),
+    env = require('dotenv').config();
 
+    // var uri = "mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority";
+    var DbConnection = process.env.DB_HOST || "mongodb://localhost:27017/blog";
+    
+    mongoose.connect(process.env.DB_HOST,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
+        .then(res=>console.log("Connected to the DB."))
+        .catch(err=> console.log(err));
+    
+        
+    
+// mongoose.connect("mongodb://localhost:27017/blog",{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
+//     .then(res=>console.log("Connected to the DB."))
+//     .catch(err=> console.log(err));
 
-
-mongoose.connect("mongodb://localhost:27017/blog",{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
-    .then(res=>console.log("Connected to the DB."))
-    .catch(err=> console.log(err));
-
+    // mongodb://localhost:27017/blog
 var app = express();
 var PORT = 5000;
 
