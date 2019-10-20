@@ -14,7 +14,6 @@ var express = require("express"),
     expressSanitizer = require('express-sanitizer'),
     env = require('dotenv').config();
 
-    // var uri = "mongodb+srv://shiva:Sh1vaseshasai@main-obesf.mongodb.net/test?retryWrites=true&w=majority";
     var DbConnection = process.env.DB_HOST || "mongodb://localhost:27017/blog";
     
     mongoose.connect(process.env.DB_HOST,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
