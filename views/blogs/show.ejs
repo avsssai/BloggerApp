@@ -36,7 +36,7 @@
         <div id="blog-body"><%- blog.body %></div>
     </div>
 
-    <div class="ui container segment">
+    <div class="ui container segment" id="comments">
             <h1 class="ui dividing header">Comments</h1>
             <% if(currentUser) { %>
                <% include ../comments/new-comment %>

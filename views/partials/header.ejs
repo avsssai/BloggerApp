@@ -21,7 +21,7 @@
 
 </head>
 
-<body >
+<body>
   <style>
     body {
       width: 100%;
@@ -29,7 +29,7 @@
     }
   </style>
 
- 
+
 
 
   <div class="ui grid">
@@ -87,7 +87,7 @@
 
 
       <% if(currentUser){ %>
-      <a class="item" href="/new">New Blog</a>
+      <a class="item" href="/home/new">New Blog</a>
       <a class="item" href="/logout">Logout</a>
       <% }if(!currentUser){ %>
       <a class="item" href="/home">All Blogs</a>
@@ -99,17 +99,21 @@
 
     </div>
     <div class="pusher" id="wrapper">
+
       <div class="main">
+        <!-- Errors done individually for each route for style ease. -->
+        <!-- <% if(error && error.length > 0){ %>
+        <div class="ui segment">
+          <div class="ui red segment">
+            <%= error %>
+          </div>
 
-        <% if(error && error.length > 0){ %>
-        <div class="ui red segment">
-          <%= error %>
+          <% } %>
+
+          <% if(error && error.length > 0){ %>
+          <div class="ui red segment"><%= success %></div>
         </div>
+        <% } %> -->
 
-        <% } %>
 
-        <% if(error && error.length > 0){ %>
-        <div class="ui red segment"><%= success %></div>
-
-        <% } %>
       </div>

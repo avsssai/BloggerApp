@@ -5,7 +5,7 @@
     <div class="ui dividing large header">
         Login 
     </div>
-    <div id="errors">
+    <!-- <div id="errors">
             <ul>
                 <% if(typeof errors !== 'undefined' && errors){ %>
     
@@ -24,7 +24,21 @@
     
     
             </ul>
-        </div>
+        </div> -->
+        
+        <% if(error && error.length > 0){ %>
+            
+              <div class="ui red segment">
+                <%= error %>
+              </div>
+    
+              <% } %>
+    
+              <% if(error && error.length > 0){ %>
+              <!-- <div class="ui red segment"><%= success %></div> -->
+            
+            <% } %>
+    
     
    
     <form action="/login" method="POST" class="ui form">

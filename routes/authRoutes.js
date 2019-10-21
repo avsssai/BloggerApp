@@ -49,7 +49,7 @@ router.post('/register', [
 
     }
 
-    
+
     User.register(new User({
             username: req.body.username
         }), req.body.password)
@@ -81,17 +81,20 @@ router.post('/register', [
 router.post('/login',
     passport.authenticate('local', {
         successRedirect: '/',
-        failureRedirect: '/login'
+        failureRedirect: '/login',
+        failureFlash:true,
+        failureMessage:"Invalid credentials!"
 
     }), (err, login) => {
         if (err) {
             console.log(err);
+            req.flash("error","Invalid Credentials!");
         }
     });
 
 router.get('/logout', (req, res) => {
     req.logout();
-    req.flash("success","Logged out successfully!");
+    req.flash("success", "Logged out successfully!");
     res.redirect('/home');
 })
 
