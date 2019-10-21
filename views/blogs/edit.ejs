@@ -1,5 +1,8 @@
 <% include ../partials/header %>
 
+<link rel="stylesheet" href="/stylesheets/edit.css">
+<link rel="stylesheet" href="stylesheets/media.css">
+
 <div class="ui container segment">
     <div class="ui dividing header">
         Edit the Blog : <%= blog.title %>
@@ -24,7 +27,7 @@
             <!-- <label for="body">Body</label>
             <textarea name="body" id="body" cols="30" rows="10"><%= blog.body %></textarea> -->
             <input name="body" type="hidden" >
-            <div id="editor-container">
+            <div id="editor-container" style="height: 375px;">
                 <%- blog.body %>
             </div>
         </div>
